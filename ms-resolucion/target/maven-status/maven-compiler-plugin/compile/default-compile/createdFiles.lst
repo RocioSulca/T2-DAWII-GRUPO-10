@@ -1,0 +1,9 @@
+com\pagoya\resolucion\client\ReclamoClient.class
+com\pagoya\resolucion\MsResolucionApplication.class
+com\pagoya\resolucion\rest\ResolucionController.class
+com\pagoya\resolucion\dto\ResolucionRequest.class
+com\pagoya\resolucion\negocio\ResolucionException.class
+com\pagoya\resolucion\dto\ResolucionResponse.class
+com\pagoya\resolucion\dto\ReclamoDto.class
+com\pagoya\resolucion\negocio\ResolucionService.class
+com\pagoya\resolucion\dto\ReclamoUpdateDto.class
