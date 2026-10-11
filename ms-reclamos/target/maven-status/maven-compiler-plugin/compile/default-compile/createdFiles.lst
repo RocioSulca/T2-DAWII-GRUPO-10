@@ -1,0 +1,7 @@
+com\pagoya\reclamos\dto\ReclamoUpdateRequest.class
+com\pagoya\reclamos\rest\ReclamoController.class
+com\pagoya\reclamos\MsReclamosApplication.class
+com\pagoya\reclamos\repositorio\ReclamoRepository.class
+com\pagoya\reclamos\dto\ReclamoRequest.class
+com\pagoya\reclamos\entidad\Reclamo.class
+com\pagoya\reclamos\negocio\ReclamoService.class
