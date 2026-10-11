@@ -1,0 +1,83 @@
+{
+  "info": {
+    "name": "DAWII ES - Reclamos y Resolucion (PAGOYA)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Eureka - servicios registrados",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8761/eureka/apps",
+        "header": [{ "key": "Accept", "value": "application/json" }]
+      }
+    },
+    {
+      "name": "2a. Reclamos - registrar",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8200/reclamos",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"numreclamo\": \"R001\",\n  \"fechareclamo\": \"2026-10-10\",\n  \"nomcliente\": \"Juan Perez\",\n  \"ultimos4tarjeta\": \"4521\",\n  \"motivo\": \"Consumo desconocido en comercio online\"\n}"
+        }
+      }
+    },
+    {
+      "name": "2b. Reclamos - consultar por numero",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8200/reclamos/R001"
+      }
+    },
+    {
+      "name": "2c. Reclamos - actualizar (uso interno)",
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8200/reclamos/R001",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombreAnalista\": \"Ana Torres\",\n  \"estado\": 2,\n  \"observacion\": \"Actualizacion manual de prueba\"\n}"
+        }
+      }
+    },
+    {
+      "name": "3a. Resolucion - procedente (estado 2)",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8201/resoluciones",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"numreclamo\": \"R001\",\n  \"nombreAnalista\": \"Carlos Ruiz\",\n  \"estado\": 2\n}"
+        }
+      }
+    },
+    {
+      "name": "3b. Resolucion - improcedente (estado 3)",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8201/resoluciones",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"numreclamo\": \"R001\",\n  \"nombreAnalista\": \"Carlos Ruiz\",\n  \"estado\": 3\n}"
+        }
+      }
+    },
+    {
+      "name": "3c. Resolucion - reclamo inexistente (error 404)",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8201/resoluciones",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"numreclamo\": \"NO-EXISTE\",\n  \"nombreAnalista\": \"Carlos Ruiz\",\n  \"estado\": 2\n}"
+        }
+      }
+    }
+  ]
+}
